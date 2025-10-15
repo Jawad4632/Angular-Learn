@@ -1,0 +1,143 @@
+<div class="max-w-3xl mx-auto mt-8 bg-white shadow p-6 rounded-lg">
+  <h2 class="text-2xl font-semibold mb-6">Edit Profile</h2>
+
+  <form #editForm="ngForm" (ngSubmit)="onSubmit()" *ngIf="profileData">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Name -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Name</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.name"
+          name="name"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Username -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Username</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.username"
+          name="username"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Email</label>
+        <input
+          type="email"
+          [(ngModel)]="profileData.email"
+          name="email"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Company -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Company</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.company"
+          name="company"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Phone -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Phone</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.phone"
+          name="phone"
+          required
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Photo URL -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Photo URL</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.photo"
+          name="photo"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Address -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Address</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.address"
+          name="address"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- ZIP -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">ZIP</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.zip"
+          name="zip"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- State -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">State</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.state"
+          name="state"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+
+      <!-- Country -->
+      <div>
+        <label class="block mb-1 text-sm font-medium text-gray-700">Country</label>
+        <input
+          type="text"
+          [(ngModel)]="profileData.country"
+          name="country"
+          class="w-full border px-3 py-2 rounded"
+        />
+      </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="flex justify-between mt-6">
+      <a
+        [routerLink]="['/']"
+        class="px-4 py-2 bg-gray-200 rounded hover:bg-gray-300"
+      >
+        ← Back
+    </a>
+      <button
+        type="submit"
+        class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
+      >
+        Save Changes
+      </button>
+    </div>
+  </form>
+
+  <!-- Loading fallback -->
+  <div *ngIf="!profileData" class="text-center text-gray-500 mt-6">
+    Loading profile data...
+  </div>
+</div>
