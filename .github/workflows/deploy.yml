@@ -1,17 +1,21 @@
 name: Deploy to Production
 
 on:
-  workflow_run:
-    workflows:
-      - Create Artifact
-    types:
-      - completed
+  workflow_dispatch:
+    inputs:
+      RunnerId:
+        description: enter the run id of latest build
+        required: true
+        type: text      
 
 jobs: 
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}  
     runs-on: ubuntu-latest
 
     steps:
-      - name: Show triggering workflow run ID
-        run: echo "Triggered by workflow run ID: ${{ github.event.workflow_run.id }}"
+      - name: Show RunnerId input
+        run: echo "RunnerId is ${{ github.event.input.RunnerId }}"
+
+        
+    
+    
