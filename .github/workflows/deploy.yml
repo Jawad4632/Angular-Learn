@@ -14,8 +14,4 @@ jobs:
 
     steps:
       - name: Show RunnerId input
-        run: echo "RunnerId is ${{ github.event.input.RunnerId }}"
-
-        
-    
-    
+        run: echo "RunnerId is ${{ inputs.RunnerId }}"
