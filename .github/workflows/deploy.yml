@@ -1,0 +1,17 @@
+name: Deploy to Production
+
+on:
+  workflow_run:
+    workflows:
+      - Create Artifact
+    types:
+      - completed
+
+jobs: 
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}  
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Show triggering workflow run ID
+        run: echo "Triggered by workflow run ID: ${{ github.event.workflow_run.id }}"
