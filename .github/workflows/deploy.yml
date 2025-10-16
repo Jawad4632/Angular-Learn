@@ -16,11 +16,8 @@ jobs:
       - name: Show RunnerId input
         run: echo "RunnerId is ${{ inputs.RunnerId }}"
 
-      - name: display the the folder structure
-        run: ls -R artifact
-
-      # - name: Download a Build Artifact
-      #   uses: actions/download-artifact@v5
-      #    run-id: ${{ inputs.RunnerId }}
-        
-        
+      - name: Download a Build Artifact
+        uses: actions/download-artifact@v5
+           name: dist
+           path: artifact
+           run-id: ${{ inputs.RunnerId }}
