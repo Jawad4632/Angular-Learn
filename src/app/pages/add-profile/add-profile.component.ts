@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Profile } from '../../models/profile.model';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ProfileService } from '../../services/profile.service';
 
 
 @Component({
@@ -26,11 +27,18 @@ export class AddProfileComponent {
     photo: ''
   };
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private service:ProfileService) { }
 
   saveProfile() {
     console.log('Profile submitted:', this.profile);
-    this.router.navigate(['/']); // navigate back after save
+    this.service.createProfile(this.profile).subscribe({
+      next:()=>{
+        this.router.navigate(['/']);
+      },
+      error:(err)=>{
+        console.error(err);
+      }
+    })
   }
 
   goBack() {
